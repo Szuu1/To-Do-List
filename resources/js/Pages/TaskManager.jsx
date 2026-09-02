@@ -1,8 +1,14 @@
-export default function TaskManager() {
+export default function TaskManager({ tasks }) {
     return (
         <div>
             <h1>Task Manager</h1>
-            <p>My Task Manager</p>
+
+            {tasks.map((task) => (
+                <div key={task.id}>
+                    <h3>{task.title}</h3>
+                    <p>{task.description}</p>
+                </div>
+            ))}
         </div>
     );
 }
