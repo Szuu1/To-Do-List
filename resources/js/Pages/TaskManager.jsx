@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { useForm, router } from '@inertiajs/react';
 
 export default function TaskManager({ tasks }) {
+
+    const [editingTask, setEditingTask] = useState(null);
 
     const { data, setData, post, put } = useForm({
         title: '',
@@ -14,14 +17,16 @@ export default function TaskManager({ tasks }) {
     }
 
     function editTask(task) {
+        setEditingTask(task);
+
         setData({
             title: task.title,
             description: task.description
         });
     }
 
-    function updateTask(task) {
-        put(`/tasks/${task.id}`);
+    function updateTask() {
+        put(`/tasks/${editingTask.id}`);
     }
 
     return (
