@@ -31,4 +31,14 @@ class TaskController extends Controller
 
         return redirect('/tasks');
     }
+
+    public function update(Request $request, Task $task)
+    {
+        $task->update([
+            'title' => $request->title,
+            'description' => $request->description
+        ]);
+
+        return redirect('/tasks');
+    }
 }
