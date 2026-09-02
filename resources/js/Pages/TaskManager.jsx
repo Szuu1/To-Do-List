@@ -1,6 +1,12 @@
 import { useForm } from '@inertiajs/react';
 
 export default function TaskManager({ tasks }) {
+
+    const { data, setData, post } = useForm({
+        title: '',
+        description: ''
+    });
+
     return (
         <div>
             <h1>Task Manager</h1>
