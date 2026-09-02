@@ -7,6 +7,12 @@ export default function TaskManager({ tasks }) {
         description: ''
     });
 
+    function addTask(e) {
+        e.preventDefault();
+
+        post('/tasks');
+    }
+
     return (
         <div>
             <h1>Task Manager</h1>
