@@ -35,6 +35,7 @@ export default function TaskManager({ tasks }) {
                     value={data.title}
                     onChange={e => setData('title', e.target.value)}
                 />
+                <button type="button" onClick={() => updateTask()}> Update Task</button>
 
                 <textarea
                     placeholder="Description"
