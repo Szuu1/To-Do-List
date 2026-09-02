@@ -14,4 +14,14 @@ class TaskController extends Controller
             'tasks' => Task::all()
         ]);
     }
+
+    public function store(Request $request)
+    {
+        Task::create([
+            'title' => $request->title,
+            'description' => $request->description
+        ]);
+
+        return redirect('/tasks');
+    }
 }
