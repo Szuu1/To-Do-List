@@ -17,6 +17,23 @@ export default function TaskManager({ tasks }) {
         <div>
             <h1>Task Manager</h1>
 
+            <form onSubmit={addTask}>
+                <input
+                    type="text"
+                    placeholder="Task title"
+                    value={data.title}
+                    onChange={e => setData('title', e.target.value)}
+                />
+
+                <textarea
+                    placeholder="Description"
+                    value={data.description}
+                    onChange={e => setData('description', e.target.value)}
+                />
+
+                <button type="submit">Add Task</button>
+            </form>
+
             {tasks.map((task) => (
                 <div key={task.id}>
                     <h3>{task.title}</h3>
