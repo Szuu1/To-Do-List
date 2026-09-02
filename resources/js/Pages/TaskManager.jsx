@@ -1,4 +1,4 @@
-import { useForm } from '@inertiajs/react';
+import { useForm, router } from '@inertiajs/react';
 
 export default function TaskManager({ tasks }) {
 
@@ -38,6 +38,8 @@ export default function TaskManager({ tasks }) {
                 <div key={task.id}>
                     <h3>{task.title}</h3>
                     <p>{task.description}</p>
+
+                    <button onClick={() => router.delete(`/tasks/${task.id}`)}> Delete </button>
                 </div>
             ))}
         </div>
