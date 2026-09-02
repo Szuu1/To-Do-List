@@ -2,7 +2,7 @@ import { useForm, router } from '@inertiajs/react';
 
 export default function TaskManager({ tasks }) {
 
-    const { data, setData, post } = useForm({
+    const { data, setData, post, put } = useForm({
         title: '',
         description: ''
     });
@@ -11,6 +11,13 @@ export default function TaskManager({ tasks }) {
         e.preventDefault();
 
         post('/tasks');
+    }
+
+    function editTask(task) {
+        setData({
+            title: task.title,
+            description: task.description
+        });
     }
 
     return (
@@ -38,6 +45,8 @@ export default function TaskManager({ tasks }) {
                 <div key={task.id}>
                     <h3>{task.title}</h3>
                     <p>{task.description}</p>
+                    
+                    <button onClick={() => editTask(task)}> Edit</button>
 
                     <button onClick={() => router.delete(`/tasks/${task.id}`)}> Delete </button>
                 </div>
